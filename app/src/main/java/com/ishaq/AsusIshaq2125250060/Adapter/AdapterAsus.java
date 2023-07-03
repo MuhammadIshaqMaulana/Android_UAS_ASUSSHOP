@@ -1,5 +1,7 @@
 package com.ishaq.AsusIshaq2125250060.Adapter;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,6 +22,7 @@ import com.ishaq.AsusIshaq2125250060.API.APIRequestData;
 import com.ishaq.AsusIshaq2125250060.API.RetroServer;
 import com.ishaq.AsusIshaq2125250060.Activity.DetailActivity;
 import com.ishaq.AsusIshaq2125250060.Activity.MainActivity;
+import com.ishaq.AsusIshaq2125250060.Activity.TambahActivity;
 import com.ishaq.AsusIshaq2125250060.Activity.UbahActivity;
 import com.ishaq.AsusIshaq2125250060.Model.ModelAsus;
 import com.ishaq.AsusIshaq2125250060.Model.ModelResponse;
@@ -126,9 +129,9 @@ public class AdapterAsus extends RecyclerView.Adapter<AdapterAsus.VHAsus> {
                         public void onClick(DialogInterface dialog, int which) {
                             hapusAsus(tvId.getText().toString());
                             dialog.dismiss();
+
                         }
                     });
-
                     pesan.setPositiveButton("Batal", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -150,8 +153,8 @@ public class AdapterAsus extends RecyclerView.Adapter<AdapterAsus.VHAsus> {
                 String kode = response.body().getKode();
                 String pesan = response.body().getPesan();
 
-                Toast.makeText(ctx, "Kode: " + kode + "Pesan: " + pesan, Toast.LENGTH_SHORT).show();
-                new MainActivity().retrieveAsus();
+                Toast.makeText(ctx, "Kode: " + kode + "Pesan: " + "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show();
+                ((MainActivity) ctx).retrieveAsus();
             }
 
             @Override

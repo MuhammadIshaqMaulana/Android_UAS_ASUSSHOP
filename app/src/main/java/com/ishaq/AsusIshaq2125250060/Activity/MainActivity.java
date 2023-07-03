@@ -64,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void retrieveAsus(){
-        pbAsus.setVisibility(View.VISIBLE);
+        pbAsus.setVisibility(View.VISIBLE)
+        ;
 
         APIRequestData ARD = RetroServer.KonekRetrofit().create(APIRequestData.class);
         Call<ModelResponse> proses = ARD.ardRetrieve();
